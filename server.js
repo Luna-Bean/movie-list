@@ -9,8 +9,17 @@ require('dotenv').config()
 const Movie = require('./model/model')
 //const addPost = require('./server')
 
+const connectDB = async () => {
+    try {
+      const conn = await mongoose.connect(process.env.DB_String);
+      console.log(`MongoDB Connected: ${conn.connection.host}`);
+    } catch (error) {
+      console.log(error);
+      process.exit(1);
+    }
+  }
 
-mongoose.connect(process.env.DB_String)
+// mongoose.connect(process.env.DB_String)
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -45,8 +54,14 @@ app.delete('/:id', (request, response) => {
         
     })
 })
-app.listen(process.env.PORT, () => {
+// app.listen(process.env.PORT, () => {
 
-    console.log(`Server is running `)
+//     console.log(`Server is running `)
+// })
+
+
+connectDB().then(() =>{
+    app.listen(process.env.PORT,()=>{
+        console.log('listening to requests')
+    })
 })
-
