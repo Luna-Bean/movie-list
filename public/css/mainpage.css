@@ -1,0 +1,236 @@
+*{
+    padding: 0;
+    margin:auto;
+}
+body{
+    /* background: url("/img/movie-screen-e1597277091571-1024x584.jpg"); */
+    background-color:black;
+    font-family: 'Solitreo', cursive;
+    /* background-repeat: no-repeat;
+    background-position: 50% 336% ;
+    background-size: 50%; */
+    /* background-position: 55%;
+    background-size: 53%;  */
+    
+}
+header{
+    width: 100%;
+    height:auto;
+    border:black 5px solid;
+}
+header img{
+    height:auto;
+    max-width:100%;
+    display: flex;
+    justify-content: center;
+}
+.container{
+    color: whitesmoke;
+    font-size: 16px;
+}
+h1{
+    font-size:3rem;
+}
+p{
+    font-size: 2rem;
+}
+button{
+    cursor: pointer;
+}
+
+div.movie-container{
+       
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 0 0;
+    width: 50%;
+    background-color: rgba(190, 183, 183, 0.247);
+}
+span.rateMovieSpan{
+     display:flex;
+     justify-content: center;
+
+    font-size: 1rem;
+    height:55px ;
+    width:100%;
+}
+div.movie-container>div.movie-value{
+    background-color: rgba(190, 183, 183, 0);
+    border-right: rgb(110, 108, 104) 6px dotted;
+    display: flex;
+    margin: 0 10px 0 0;
+    height:auto;
+    width:100%;
+    list-style:disc;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.movie-value{
+    font-family: 'Solitreo', cursive;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 100%;
+}
+
+
+div.movie-container >div>.movies-watched{
+    display: flex;
+    justify-content: center;
+    background-color: green;
+    border: 13px inset #25cc2d;
+    margin: 0 0 0 0;
+    width: 100%
+}
+
+.movies-watched{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    display: flex;
+    height: 80px;
+    width: 46px;
+    font-size: 1rem;
+}
+div.rateMovieContainer{
+    display: flex;
+}
+.ratingContainer{
+    font-size: 17px;
+    width: 35%;
+    height: 25%;
+    padding-top: 15px;
+}
+
+
+.movies-completed{
+    width:100%;
+    height: 12%;
+}
+/* a.movies-watched.false{
+    font-size: 1rem;
+} */
+
+.rating .field{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color:antiquewhite;
+    border: 2px;
+    color: black;
+    font-size: 1.1rem;
+    margin: 10px 0 0 0;
+}
+
+.rating .field span#value{
+    position: absolute;
+    color: black;
+}
+
+.rating .field span#initialRange,.rating .field span#maxRange{
+    left: -43px;
+    color: black;
+    }
+.rating .field #maxRange{
+        right: -22px;
+        color: black;
+    
+    }
+.rating .field input{
+    -webkit-appearance: none;
+    height: 3px;
+    width: 100%;
+    background-color: #0e0627ab;
+    border-radius:5px;
+    outline: none;
+    border: none;
+}
+
+
+.rating .field input::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height:20px;
+    width: 20px;
+    background-color: wheat;
+    border-radius: 50%;
+    border: 1px solid black;
+    cursor:pointer;
+
+}
+
+.sliderValue{
+    margin: 0 80px 0 80px;
+    position: relative;
+    width:100%;
+    background-color: yellow;
+    border-radius: 25%;
+    top:-31px;
+    right:-90px;
+    left: 40px;
+z-index: 1;
+   
+
+}
+
+div.rating .sliderValue span.slideValInBubble{
+    position: absolute;
+    /* margin: 0 0 0 0; */
+    font-size: 1.2rem;
+    height:18px;
+    width:30px;
+    color:black;
+    top: 4px;
+    right: 139px;
+    left:-45px;
+    background-color: #2f2e2e;
+    transform: translateX(-50%);
+    line-height: 10px;
+    z-index:1;
+
+}
+
+div.rating .sliderValue span.slideValInBubble:after{
+    position: absolute;
+    content: '';
+    height:30px;
+    width:30px;
+    color:black;
+    top: -15px;
+    right:136px;
+    left:23%;
+    background-color: #a9a988;
+    transform: translateX(-50%) rotate(45deg);
+    z-index: -1;
+    border: wheat 3px solid;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+
+}
+div.movie-container >div>.movie-delete{
+    display: flex;
+    justify-content: center;
+    background-color: red;
+    border: 13px inset #d02d2d;
+    margin: 0 0 0 0;
+    width: 87%
+
+}
+
+div > .movie-delete:hover {
+    
+    color: blue;
+    cursor: pointer;
+}
+div > .movie-delete {
+    
+    color: black;
+    cursor: pointer;
+}
+
+.completed{
+    color: gray;
+    text-decoration: line-through;
+}
+

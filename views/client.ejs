@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies List</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Solitreo&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/mainpage.css">
+</head>
+<body>
+<header>
+    <img src="/img/template_primary.jpg">
+</header>
+<div class="container">
+    <p>Enter the title of the movie you would like to watch below</p>
+    <form class="addMoviesHere" action="/addPost" method="POST" autocomplete="off">
+        <input type="text" placeholder="Movie Title" name="movieValue" required>
+        <button type="submit">Add</button>
+    </form>
+    <% if(data) { %>
+        <% data.forEach((movieValue, index) => { %>
+            <div class="movie-container">
+                <div class="movie-value"><%= movieValue.movies %></div>
+                
+                <div class="ratingContainer">
+                    <div class="movies-completed">
+                        <!-- <a class="movies-watched <%= movieValue.completed %>"></a> -->
+                        <div class="rateMovieContainer">
+                            <span class="rateMovieSpan">Rate Movie</span>
+                        </div> 
+                        <div class="rating">
+                            <div class="sliderValue">
+                                <span class="slideValInBubble">3</span>
+                            </div>
+                            <div class="field">
+                                <span id="value initialRange<%= index %>">0</span>
+                                <input type="range" id="rangebar<%= index %>" min="0" max="5"> 
+                                <span id="value maxRange<%= index %>">5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="movie-delete <%= movieValue.id %>"> Delete </a>
+                </div>
+</div>
+       <% }) %>
+
+   <% } %>
+   
+
+</div>
+
+<script>
+    const slideValues = document.querySelectorAll('.slideValInBubble')
+    const inputSliders = document.querySelectorAll('[id^="rangebar"]')
+
+  
+    inputSliders.forEach((inputSlider, index) => {
+        inputSlider.oninput = (()=>{
+            let value = inputSlider.value;
+            slideValues[index].textContent = value;
+        });
+    });
+</script>
+    <script>
+        const deleteButton = document.querySelectorAll('.movie-delete')
+    
+    deleteButton.forEach((button, i) => {
+        button.addEventListener('click', () => {
+            const endPoint = `/${button.classList[1]}`
+            fetch(endPoint, {
+                method: 'DELETE'
+            })
+            window.location.href = '/'
+        })
+       
+    })
+    </script>
+</body>
+
+</html>
